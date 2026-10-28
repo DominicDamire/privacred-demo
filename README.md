@@ -14,6 +14,14 @@ Privacy-preserving authorisation prototype. A holder proves a predicate about a 
 
 *The browser demo. The proof for "student at QMUL" is generated in the page and accepted by the verifier. The presentation it sends carries only the commitment (`ageCommitment`), no attribute values. A PLONK run is in `screens/`.*
 
+## Screens
+
+Captured from the live demo (headless Chrome). Left: the page on load. Right: after pressing "Prove + verify" on "student at QMUL" (Groth16: prove 4,478 ms, verify 293 ms on this run, and the copy with one public signal altered is rejected).
+
+| | |
+|---|---|
+| ![Demo home](screens/home.png) | ![Proof accepted](screens/result.png) |
+
 ## What it does
 
 - **Issuer** signs a credential. The BBS+ signature covers a single Poseidon commitment `C = Poseidon(age, student, institutionHash, blinding)`.
