@@ -124,4 +124,3 @@ Damire Zalyatov
 
 Developed in a private repository.
 
-Source code: https://github.com/DominicDamire/privacred
