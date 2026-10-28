@@ -1,5 +1,7 @@
 # PrivaCred
 
+**Read the dissertation (PDF):** https://dominicdamire.github.io/privacred-demo/PrivaCred-dissertation.pdf
+
 **[Live demo](https://dominicdamire.github.io/privacred-demo/)**: generate and verify a Groth16 or PLONK proof in your browser.
 
 > **Public demo repository.** The root of this repository is the built, static browser demo (served by GitHub Pages); README, charts and screenshots are the write-up. **Source code is private; available on request** (zalyatovdamiredominic@gmail.com).
