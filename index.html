@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PrivaCred — Live Demonstrator</title>
+    <link rel="icon" href="data:," />
+    <script type="module" crossorigin src="/privacred/assets/index-CqoFlRS2.js"></script>
+    <link rel="stylesheet" crossorigin href="/privacred/assets/index-DWU0O1Pr.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>PrivaCred</h1>
+        <p class="subtitle">
+          Privacy-preserving attribute-based authorisation. The browser
+          generates the proof; the verifier never sees any attribute
+          value.
+        </p>
+      </header>
+
+      <section class="about">
+        <details>
+          <summary>What is this?</summary>
+          <p>
+            PrivaCred binds a BBS+ selective-disclosure credential to a
+            zk-SNARK predicate proof through a Poseidon commitment that
+            both sides hash independently. You pick a predicate; this
+            page proves it against a pre-issued demo credential
+            <strong>entirely in your browser</strong> (snarkjs's wasm
+            target) and the demo verifier confirms the proof. The
+            verifier learns only the boolean answer, never the
+            attribute values.
+          </p>
+          <p>
+            <strong>Demo credentials are pre-issued with a public test
+            keypair</strong> — see <code>packages/demo-web/test-fixtures/issuer-keypair.json</code>.
+            These are not real PrivaCred issuer keys; they exist so
+            anyone can reproduce the demo locally.
+          </p>
+        </details>
+      </section>
+
+      <section class="protocol">
+        <fieldset>
+          <legend>Proof system</legend>
+          <label>
+            <input type="radio" name="protocol" value="groth16" checked />
+            Groth16 <span class="muted">(default, 428 KB zkey)</span>
+          </label>
+          <label>
+            <input type="radio" name="protocol" value="plonk" />
+            PLONK <span class="muted">(17 MB zkey, lazy-loaded)</span>
+          </label>
+        </fieldset>
+      </section>
+
+      <section class="predicates" id="predicateList">
+        <h2>Choose a predicate</h2>
+        <!-- Populated by main.ts -->
+      </section>
+
+      <section class="result">
+        <h2>Result</h2>
+        <div id="resultPanel" class="panel" aria-live="polite">
+          <em>Pick a predicate above to generate a proof.</em>
+        </div>
+        <h3 id="presentationTitle">Presentation (sent to /verify)</h3>
+        <pre id="presentationPanel" class="panel mono"><em>no proof yet</em></pre>
+      </section>
+
+      <section class="status">
+        <h2 id="statusTitle">Server status</h2>
+        <pre id="statusPanel" class="panel mono"><em>loading…</em></pre>
+        <button id="refreshStatus" type="button">Refresh</button>
+      </section>
+
+      <footer>
+        <p>
+          PrivaCred — QMUL MSc dissertation 2025/26.
+          <span id="serverLinks"><a href="/status">GET /status</a> ·
+          <a href="/vkeys">GET /vkeys</a></span>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
